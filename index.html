@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Nuark Noir">
+  <title>MusiDB</title>
+  <link rel="stylesheet" href="css/uikit.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/uikit.min.js"></script>
+  <script src="js/uikit-icons.min.js"></script>
+  <script type="text/javascript" src="js/logic.js"></script>
+</head>
+
+<body>
+  <!--Start of navbar-->
+  <nav class="uk-navbar-container uk-margin uk-navbar" uk-navbar="">
+    <div class="uk-navbar-left">
+      <a class="uk-navbar-item uk-logo" href="#">Nuark.Noir NCS Music Collection</a>
+      <ul class="uk-navbar-nav">
+        <li class="uk-active"><a href="#home">Home</a></li>
+        <li><a href="#db">Database</a></li>
+        <li><a href="#about" onclick="">About Us</a></li>
+      </ul>
+    </div>
+    <div class="uk-navbar-right">
+      <ul class="uk-navbar-nav">
+        <li><a href="#login-form" uk-toggle>Login</a></li>
+      </ul>
+      <div>
+        <a class="uk-navbar-toggle uk-search-icon uk-icon" href="#" uk-search-icon="" aria-expanded="false"></a>
+        <div class="uk-navbar-dropdown uk-navbar-dropdown-boundary uk-navbar-dropdown-bottom-center" uk-drop="mode: click; cls-drop: uk-navbar-dropdown; boundary: !nav; boundary-align: true; pos: bottom-justify; flip: x" style="width: 1200px; top: 80px; left: 0px;">
+          <div class="uk-grid-small uk-flex-middle uk-grid" uk-grid="">
+            <div class="uk-width-expand uk-first-column">
+              <form class="uk-search uk-search-navbar uk-width-1-1">
+                <input class="uk-search-input" placeholder="Search..." autofocus="" type="search" name="search_query">
+              </form>
+            </div>
+            <div class="uk-width-auto">
+              <a class="uk-navbar-dropdown-close uk-close uk-icon" href="#" uk-close=""></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!--End of navbar-->
+  <!--Start of content-->
+  <div class="uk-container">
+    <div class="uk-alert uk-alert-primary"><span class="uk-text-bold">Work in progress.</span></div>
+    <div class="uk-alert uk-alert-warning">
+      <span class="uk-text-bold _trackname">Trackname</span><br><br>
+      <audio class="_player uk-width-1-1" controls="" autoplay=""></audio>
+    </div>
+    <div class="main_content">
+      <div class="uk-flex uk-flex-column uk-flex-stretch uk-panel-scrollable uk-height-medium">
+        <script type="text/javascript">
+          $(".main_content .uk-flex").load("./lol.php");
+        </script>
+      </div>
+    </div>
+  </div>
+  <!--End of content-->
+  <!--Start of login dilogue-->
+  <div id="login-form" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+      <h2 class="uk-modal-title">Login</h2>
+      <div class="uk-alert uk-alert-primary">If you have no account, just fill the login.</div>
+      <div class="uk-alert uk-alert-warning" hidden="">User with same login exist.</div>
+      <div class="uk-alert uk-alert-danger" hidden="">Wrong password.</div>
+      <form action="login.php" method="post">
+        <div class="uk-inline uk-width-xxlarge">
+          <span class="uk-form-icon" uk-icon="icon: user"></span>
+          <input class="uk-input" type="text" name="login" placeholder="Your login" value="" required="">
+        </div>
+        <br><br>
+        <div class="uk-inline uk-width-xxlarge">
+          <span class="uk-form-icon" uk-icon="icon: lock"></span>
+          <input class="uk-input" type="password" name="password" placeholder="Yout password" value="">
+        </div>
+        <br><br>
+        <div class="uk-inline uk-width-xxlarge">
+          <button type="send" name="sender" class="uk-button uk-button-primary uk-width-1-1">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!--End of login dilogue-->
+</body>
+
+</html>
